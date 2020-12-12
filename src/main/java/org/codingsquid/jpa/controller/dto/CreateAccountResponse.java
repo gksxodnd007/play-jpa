@@ -1,6 +1,8 @@
 package org.codingsquid.jpa.controller.dto;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.codingsquid.jpa.entity.Account;
 
@@ -11,6 +13,7 @@ import java.math.BigDecimal;
  * @since 2020.12.12
  */
 @RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Getter
 public class CreateAccountResponse {
 
