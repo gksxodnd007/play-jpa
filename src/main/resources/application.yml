@@ -1,0 +1,19 @@
+database:
+  url: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC
+  username: root
+  password: 1234
+  max-connection: 5
+  min-connection: 5
+
+jpa:
+  generate-ddl: false
+  show-sql: true
+  storage-engine: innodb
+  dialect: org.hibernate.dialect.MySQL57Dialect
+  hbm2ddl-auto: create
+  implicit-naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  physical-naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+spring:
+  jpa:
+    open-in-view: false
