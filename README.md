@@ -68,6 +68,8 @@ curl -X PATCH -H "Content-Type: application/json" -d '{"accountNumber":"57570201
 
 [result first experiment](./assets/experiment1.png)
 
+<img src="./assets/experiment1.png" alt="test"/>
+
 같은 accountNumber를 바라보고 있으므로 withdraw에서는 sleep 이후에(commit 이후) 조회시 withdraw2에 의해 바뀐 금액이 조회되어야 하지만
 실제로는 처음에 조회한 금액을 출력하게된다.
 
