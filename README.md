@@ -59,12 +59,12 @@ public class AccountService {
 
 테스트 시나리오
 ```shell script
-curl -X POST -H "Content-Type: application/json" -d '{"accountNumber":"57570201168926"}' "http://localhost:8080/api/v1/accounts" 호출 후 5초가 지나기전에
-curl -X PATCH -H "Content-Type: application/json" -d '{"accountNumber":"57570201168926","money":100000}' "http://localhost:8080/api/v2/accounts" 를 호출한다.
+curl -X POST -H "Content-Type: application/json" -d '{"accountNumber":"57570201168926"}' "http://localhost:8080/api/v1/retrieve-twice-account" 호출 후 5초가 지나기전에
+curl -X PATCH -H "Content-Type: application/json" -d '{"accountNumber":"57570201168926","money":100000}' "http://localhost:8080/api/v1/account" 를 호출한다.
 ```
 
-- /api/v1/accounts -> findTwiceByAccountNumber(String accountNumber) 호출
-- /api/v2/accounts -> withdraw2(String accountNumber, BigDecimal money) 호출
+- /api/v1/retrieve-twice-account -> findTwiceByAccountNumber(String accountNumber) 호출
+- /api/v1/account -> withdraw(String accountNumber, BigDecimal money) 호출
 
 <img src="./assets/experiment1.png" alt="result first experiment"/>
 

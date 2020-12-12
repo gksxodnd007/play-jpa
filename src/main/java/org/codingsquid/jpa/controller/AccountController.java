@@ -20,19 +20,19 @@ public class AccountController {
     private final AccountService accountService;
     private final UserService userService;
 
-    @PostMapping("/api/v1/accounts")
+    @PostMapping("/api/v1/retrieve-twice-account")
     public ResponseEntity<WithdrawResponse> doFindTwice(@RequestBody RetrieveAccountRequest request) {
         Account account = accountService.findTwiceByAccountNumber(request.getAccountNumber());
         return ResponseEntity.ok(WithdrawResponse.from(account));
     }
 
-    @PatchMapping("/api/v2/accounts")
+    @PatchMapping("/api/v1/account")
     public ResponseEntity<WithdrawResponse> doWithdraw(@RequestBody WithdrawRequest request) {
         Account account = accountService.withdraw(request.getAccountNumber(), request.getMoney());
         return ResponseEntity.ok(WithdrawResponse.from(account));
     }
 
-    @PostMapping("/api/v1/accounts")
+    @PostMapping("/api/v1/account")
     public ResponseEntity<CreateAccountResponse> doCreate(@RequestBody CreateAccountRequest request) {
         User user = userService.getByEmail(request.getEmail());
         Account account = accountService.create(user);
