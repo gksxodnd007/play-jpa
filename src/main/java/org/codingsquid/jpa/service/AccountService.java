@@ -27,8 +27,8 @@ public class AccountService {
     private EntityManager entityManager;
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public Account withdraw(String accountNumber, BigDecimal money) {
-        System.out.println(">>> withdraw1");
+    public Account findTwiceByAccountNumber(String accountNumber) {
+        System.out.println(">>> findTwiceByAccountNumber");
         Account account = repository.findByNumber(accountNumber)
                 .orElseThrow(RuntimeException::new);
 
@@ -46,8 +46,8 @@ public class AccountService {
     }
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public Account withdraw2(String accountNumber, BigDecimal money) {
-        System.out.println(">>> withdraw2");
+    public Account withdraw(String accountNumber, BigDecimal money) {
+        System.out.println(">>> withdraw");
         Account account = repository.findByNumber(accountNumber)
                 .orElseThrow(RuntimeException::new);
 

@@ -1,10 +1,7 @@
 package org.codingsquid.jpa.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.codingsquid.jpa.controller.dto.CreateAccountRequest;
-import org.codingsquid.jpa.controller.dto.CreateAccountResponse;
-import org.codingsquid.jpa.controller.dto.WithdrawRequest;
-import org.codingsquid.jpa.controller.dto.WithdrawResponse;
+import org.codingsquid.jpa.controller.dto.*;
 import org.codingsquid.jpa.entity.Account;
 import org.codingsquid.jpa.entity.User;
 import org.codingsquid.jpa.service.AccountService;
@@ -23,15 +20,15 @@ public class AccountController {
     private final AccountService accountService;
     private final UserService userService;
 
-    @PatchMapping("/api/v1/accounts")
-    public ResponseEntity<WithdrawResponse> doWithdraw(@RequestBody WithdrawRequest request) {
-        Account account = accountService.withdraw(request.getAccountNumber(), request.getMoney());
+    @PostMapping("/api/v1/accounts")
+    public ResponseEntity<WithdrawResponse> doFindTwice(@RequestBody RetrieveAccountRequest request) {
+        Account account = accountService.findTwiceByAccountNumber(request.getAccountNumber());
         return ResponseEntity.ok(WithdrawResponse.from(account));
     }
 
     @PatchMapping("/api/v2/accounts")
-    public ResponseEntity<WithdrawResponse> doWithdraw2(@RequestBody WithdrawRequest request) {
-        Account account = accountService.withdraw2(request.getAccountNumber(), request.getMoney());
+    public ResponseEntity<WithdrawResponse> doWithdraw(@RequestBody WithdrawRequest request) {
+        Account account = accountService.withdraw(request.getAccountNumber(), request.getMoney());
         return ResponseEntity.ok(WithdrawResponse.from(account));
     }
 
